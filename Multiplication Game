@@ -1,0 +1,32 @@
+import time
+import random
+
+score = 0
+time_limit = 20
+
+for question in range(1, 7):
+	num1 = random.randint(1, 50)
+	num2 = random.randint(1, 50)
+	
+	correct_answer = num1 * num2
+	print(f"Question {question}: what is {num1} * {num2}")
+	
+	start = time.time()
+	
+	
+	try: 
+		user_answer = int(input("type your answer: "))
+		end = time.time()
+		time_taken = end - start
+
+		if time_taken > time_limit:
+			print(f"you ran out of time cause you're too slow! you took {round(time_taken, 2)} seconds. the correct answer was {correct_answer}")
+		elif user_answer == correct_answer:
+			print("Good job")
+			score += 1
+		else:
+			print("you are wrong the correct answer is: " + str(correct_answer)) 
+	except ValueError:
+		print("please enter a number")	
+		
+print(f"game over, you got {score} answers right")
