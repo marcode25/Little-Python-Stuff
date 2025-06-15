@@ -1,0 +1,41 @@
+def sub(x,y):
+	return x - y
+def add(x,y):
+	return x + y
+def mult(x,y):
+	return x * y
+def div(x,y):
+	if y == 0:
+		return "Cannot divide by 0"
+	return x / y
+while True:
+	num1 = input("Please enter your first number: ")
+	if num1.lower() == "quit":
+		print("Goodbye")
+		break
+
+	try:
+		num1 = float(num1)
+	except ValueError:
+		print("Error: Please Enter a valid number")
+		continue
+	
+	operator = input("Please enter one of these operator: add, sub, mult, div").lower()
+	if operator not in ["add", "sub", "mult", "div"]:
+		print("Error: Invalid operator")
+		continue
+
+	try:
+		num2 = float(input("Please enter your second number"))
+	except ValueError:
+		print("Error: Please Enter a valid number")
+		continue
+	
+	if operator == "add":
+		print("Result: " + str(add(num1, num2)))
+	elif operator == "sub":
+		print("Result: " + str(sub(num1, num2)))
+	elif operator == "mult":
+		print("Result: " + str(mult(num1, num2)))
+	elif operator == "div":
+		print("Result: " + str(div(num1, num2)))
