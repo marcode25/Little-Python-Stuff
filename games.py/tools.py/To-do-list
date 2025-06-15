@@ -1,0 +1,43 @@
+def show_menu():
+	print("\nTo-Do List Show Menu: ")
+	print("1. View Tasks")
+	print("2. Add Tasks")
+	print("3. Remove Tasks")
+	print("4. Quit")
+
+def display_tasks(tasks):
+	if  not tasks:
+		print("No tasks yet!")
+	else:
+		print("\nYour Tasks:")
+		for i, task in enumerate(tasks, start=1):
+			print(f"{i}, {task}")
+def main():
+	tasks = []
+	
+	
+	while True:
+		show_menu()
+		choice = input("Choose an option 1-4: ")
+		
+		if choice == "1":
+			display_tasks(tasks)	
+		elif choice == "2":
+			task = input("Enter new task: ")
+			tasks.append(task)
+			print(f"{task} was added")
+			display_tasks(tasks)
+		elif choice == "3":
+			display_tasks(tasks)
+			try:
+				task_num = int(input("Enter the number of thr task you want to remove"))
+				removed = tasks.pop(task_num - 1)
+				print(f"{removed} was removed")
+			except ValueError:
+				print("Please enter a valid number of a ")
+		elif choice == "4":
+			print("Okay Goodbye")
+			break
+		else:
+			print("Please enter a valid option")
+main()
